@@ -1,6 +1,21 @@
 make clean
-./configure --cc=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc --as='gas-preprocessor.pl /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc' --sysroot=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk --extra-ldflags=-L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/usr/lib/system --target-os=darwin --arch=arm --cpu=cortex-a8 --extra-cflags='-arch armv7' --extra-ldflags='-arch armv7' --enable-pic --enable-cross-compile --disable-ffmpeg  --disable-ffplay --disable-ffserver --disable-doc
 
+./configure \
+--prefix=armv7 \
+--disable-ffmpeg \
+--disable-ffplay \
+--disable-ffprobe \
+--disable-ffserver \
+--enable-avresample \
+--enable-cross-compile \
+--sysroot="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk" \
+--target-os=darwin \
+--cc="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc" \
+--extra-cflags="-arch armv7 -mfpu=neon -miphoneos-version-min=6.0" \
+--extra-ldflags="-arch armv7 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk -miphoneos-version-min=6.0" \
+--arch=arm \
+--cpu=cortex-a9 \
+--enable-pic \
 
 
 # build for armv7
